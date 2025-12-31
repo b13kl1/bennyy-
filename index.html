@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى بيان</title>
+    <style>
+        body { margin: 0; padding: 0; background-color: #ffeff7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-y: auto; text-align: center; }
+        .container { width: 90%; max-width: 400px; padding: 20px 0; }
+        .step { display: none; animation: fadeIn 0.8s; }
+        .active { display: block; }
+        h1, h2, h3, p { color: #d63384; margin: 15px 0; font-weight: bold; }
+        img { width: 220px; height: auto; border-radius: 20px; margin: 15px 0; box-shadow: 0 8px 20px rgba(214, 51, 132, 0.25); border: 3px solid #fff; }
+        .btn { background-color: #ff69b4; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-size: 18px; cursor: pointer; margin-top: 15px; width: 100%; max-width: 260px; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4); }
+        .btn:active { transform: scale(0.95); background-color: #d63384; }
+        .circle-btn { width: 70px; height: 70px; background-color: white; border: 4px solid #ff69b4; border-radius: 50%; cursor: pointer; margin: 30px auto; display: block; box-shadow: 0 0 20px rgba(255, 105, 180, 0.6); animation: pulse 1.5s infinite; }
+        .heart-btn { font-size: 70px; background: none; border: none; cursor: pointer; animation: beat 0.8s infinite; margin: 10px 0; display: block; width: 100%; text-shadow: 0 0 10px rgba(255,105,180,0.5); }
+        .poem { background: white; padding: 20px; border-radius: 15px; border: 2px dashed #ff69b4; color: #555; margin: 20px 0; line-height: 2; font-size: 17px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="step active" id="step1">
+        <h1>انتي بيان ؟</h1>
+        <button class="circle-btn" onclick="nextStep(2)"></button>
+    </div>
+
+    <div class="step" id="step2">
+        <img src="images/hello-kitty-hi.gif">
+        <h2>اهلاً بياان</h2>
+        <button class="btn" onclick="nextStep(3)"> 👉🏻👈🏻اهلينن</button>
+    </div>
+
+    <div class="step" id="step3">
+        <img src="images/hello-kitty-shy.gif">
+        <h2> 🤔 بيني عندي الك سؤال</h2>
+        <button class="btn" onclick="nextStep(4)">عيوني 🤭</button>
+    </div>
+
+    <div class="step" id="step4">
+        <img src="images/hello-kitty-thinking.gif">
+        <h2>بس اوعديني تجاوبي بدون كذب ؟ 😓</h2>
+        <button class="btn" onclick="nextStep(5)">وعدد يلا شوووو</button>
+    </div>
+
+    <div class="step" id="step5">
+        <img src="images/hello-kitty-love.gif">
+        <h2>بتحبي عبدالله ولا لا ؟ 😻</h2>
+        <button class="btn" onclick="nextStep(6)">شنوو 😭</button>
+    </div>
+
+    <div class="step" id="step6">
+        <img src="images/hello-kitty-mad.gif">
+        <h2>شنو شنو 👎🏻 بتحبي عبدالله ولا لا</h2>
+        <button class="btn" onclick="nextStep(7)">امممممم بعرفش 😛</button>
+    </div>
+
+    <div class="step" id="step7">
+        <img src="images/hello-kitty-heart.gif">
+        <h2>اذا بتحبي عبدالله اضغطي القلب</h2>
+        <button class="heart-btn" onclick="nextStep(8)">💗</button>
+    </div>
+
+    <div class="step" id="step8">
+        <h2>وانا بحبك جدا بيني </h2>
+        <div class="poem">
+            حظي بأطلق مهندزة ان شاء الله <br>
+            ان شاء الله تكوني معي على خير كل سنة 😻<br>
+            <br>بهيمك يا وتيني 🌷🌷
+            الله يحميكي ويوفقك احلى بياان
+        </div>
+        <button class="btn" onclick="nextStep(9)">بحبك وبعشقك جداا 🥺💗</button>
+    </div>
+
+    <div class="step" id="step9">
+        <img src="images/hello-kitty-kiss.gif">
+        <h3>يا وتين القلب ❤️</h3>
+
+        <audio id="bgMusic" controls style="width: 100%; margin-top: 15px;">
+            <source src="audio/every-breath-you-take.mp3" type="audio/mpeg">
+            المتصفح لا يدعم تشغيل الصوت
+        </audio>
+    </div>
+
+</div>
+
+<script>
+function nextStep(stepNumber) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + stepNumber).classList.add('active');
+
+    if (stepNumber === 9) {
+        const audio = document.getElementById('bgMusic');
+        audio.volume = 0.5;
+        audio.play();
+    }
+}
+</script>
+
+</body>
+</html>
